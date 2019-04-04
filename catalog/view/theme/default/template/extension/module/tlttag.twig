@@ -1,0 +1,9 @@
+<div class="list-group">
+  {% for tag in tags %}
+    {% if tag.tlttag_id == current_tag %}
+      <a href="{{ tag.href }}" class="list-group-item active">{{ tag.title }}</a>
+    {% else %}
+      <a href="{{ tag.href }}" class="list-group-item">{{ tag.title }}</a>
+    {% endif %}
+  {% endfor %}
+</div>

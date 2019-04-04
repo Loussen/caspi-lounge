@@ -1,0 +1,76 @@
+{{ header }}
+<div class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+      <li><a href="{{ breadcrumb['href'] }}">{{ breadcrumb['text'] }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="row">{{ column_left }}
+    {% if (column_left and column_right) %}
+      {% set class = 'col-sm-6' %}
+    {% elseif (column_left or column_right) %}
+      {% set class = 'col-sm-9' %}
+    {% else %}
+      {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">
+      {{ content_top }}
+      <h1>{{ heading_title }}</h1>
+      <div class="row tltblog">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          {% set rowcounter = 0 %}
+          {% set class_cols = 'col-lg-' ~ 12 / num_columns ~ ' col-md-' ~ 12 / num_columns ~ 'col-sm-12 col-xs-12' %}
+          <div class="row tltblog">
+            {% for tltblog in tltblogs %}
+            <div class="{{ class_cols }}">
+              <div class="row">
+                {% if (show_image) %}
+                  <div class="col-sm-3">
+                    {% if (tltblog['show_description']) %}
+                      <a href="{{ tltblog['href'] }}"><img src="{{ tltblog['thumb'] }}" alt="{{ tltblog['title'] }}" title="{{ tltblog['title'] }}" class="img-thumbnail" /></a>
+                    {% else %}
+                      <a><img src="{{ tltblog['thumb'] }}" alt="{{ tltblog['title'] }}" title="{{ tltblog['title'] }}" class="img-thumbnail" /></a>
+                    {% endif %}
+                  </div>
+                  <div class="col-sm-9">
+                    {% if (tltblog['show_description']) %}
+                      <h4><a href="{{ tltblog['href'] }}">{{ tltblog['title'] }}</a></h4>
+                    {% else %}
+                      <h4><a>{{ tltblog['title'] }}</a></h4>
+                    {% endif %}
+                    <div>{{ tltblog['intro'] }}</div>
+                  </div>
+                {% else %}
+                  <div class="col-sm-12">
+                    {% if (tltblog['show_description']) %}
+                      <h4><a href="{{ tltblog['href'] }}">{{ tltblog['title'] }}</a></h4>
+                    {% else %}
+                      <h4><a >{{ tltblog['title'] }}</a></h4>
+                    {% endif %}
+                    <div>{{ tltblog['intro'] }}</div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            {% set rowcounter = rowcounter + 1 %}
+            {% if (rowcounter == num_columns) %}
+          </div>
+          <div class="row tltblog">
+            {% set rowcounter = 0 %}
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% if (pagination_enabled) %}
+        <div class="row">
+          <div class="col-sm-6 text-left">{{ pagination }}</div>
+          <div class="col-sm-6 text-right">{{ results }}</div>
+        </div>
+      {% endif %}
+      {{ content_bottom }}
+    </div>
+    {{ column_right }}
+  </div>
+</div>
+{{ footer }}

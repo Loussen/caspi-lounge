@@ -1,0 +1,198 @@
+{{ header }}
+
+
+
+
+
+<section class="flat-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumbs">
+                    {% for breadcrumb in breadcrumbs %}
+                        <li class="{% if breadcrumb.order == "last" %}trail-end {% else %}trail-item{% endif %}">
+                            <a href="{{ breadcrumb.href }}" title="">{{ breadcrumb.text }}</a>
+                            {% if breadcrumb.order != "last" %}<span><img src="catalog/view/theme/default/images/icons/arrow-right.png" alt=""></span>{% endif %}
+                        </li>
+                    {% endfor %}
+                </ul><!-- /.breacrumbs -->
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.flat-breadcrumb -->
+
+
+
+
+
+
+<section class="flat-iconbox style4">
+    <div class="container">
+        <div class="row">
+            {{ column_left }}
+
+            {% if column_left and column_right %}
+                {% set class = 'col-lg-7 col-md-4' %}
+            {% elseif column_left or column_right %}
+                {% set class = 'col-lg-9 col-md-8' %}
+            {% else %}
+                {% set class = 'col-lg-12 col-md-12' %}
+            {% endif %}
+
+            <div class="{{ class }}">
+                <div class="contancts-page">
+                    {{ content_top }}
+
+                    <div class="flat-row-title">
+                        <h1>{{ heading_title }}</h1>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="iconbox style2">
+                                <div class="box-header">
+                                    <div class="image">
+                                        <img src="catalog/view/theme/default/images/icons/address.png" alt="">
+                                    </div>
+                                    <div class="title">
+                                        <div class="h3">{{ store }}</div>
+                                    </div>
+                                </div><!-- /.box-header -->
+                                <div class="box-content">
+                                    <p>
+                                        {{ text_address }}
+                                    </p>
+                                </div><!-- /.box-content -->
+                            </div><!-- /.iconbox style2 -->
+                        </div><!-- /.col-md-6 col-lg-3 -->
+                        <div class="col-md-6 col-lg-3">
+                            <div class="iconbox style2">
+                                <div class="box-header">
+                                    <div class="image">
+                                        <img src="catalog/view/theme/default/images/icons/phone.png" alt="">
+                                    </div>
+                                    <div class="title">
+                                        <div class="h3">{{ text_telephone }}</div>
+                                    </div>
+                                </div><!-- /.box-header -->
+                                <div class="box-content">
+                                    <p>
+                                        {{ telephone }}
+                                    </p>
+                                    {% if fax %}
+                                    <p>
+                                        {{ fax }}
+                                    </p>
+                                    {% endif %}
+                                </div><!-- /.box-content -->
+                            </div><!-- /.iconbox style2 -->
+                        </div><!-- /.col-md-6 col-lg-3 -->
+                        <div class="col-md-6 col-lg-3">
+                            <div class="iconbox style2">
+                                <div class="box-header">
+                                    <div class="image">
+                                        <img src="catalog/view/theme/default/images/icons/mail-2.png" alt="">
+                                    </div>
+                                    <div class="title">
+                                        <div class="h3">E-mail</div>
+                                    </div>
+                                </div><!-- /.box-header -->
+                                <div class="box-content">
+                                    <p>
+                                        {{ config_email }}
+                                    </p>
+                                </div><!-- /.box-content -->
+                            </div><!-- /.iconbox style2 -->
+                        </div><!-- /.col-md-6 col-lg-3 -->
+                        {% if open %}
+                        <div class="col-md-6 col-lg-3">
+                            <div class="iconbox style2">
+                                <div class="box-header">
+                                    <div class="image">
+                                        <img src="catalog/view/theme/default/images/icons/share.png" alt="">
+                                    </div>
+                                    <div class="title">
+                                        <div class="h3">{{ text_open }}</div>
+                                    </div>
+                                </div><!-- /.box-header -->
+                                <div class="box-content">
+                                    <p>
+                                        {{ open }}
+                                    </p>
+                                </div><!-- /.box-content -->
+                            </div><!-- /.iconbox style2 -->
+                        </div><!-- /.col-md-6 col-lg-3 -->
+                        {% endif %}
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="row-title">
+                                <h2>{{ text_contact_form }}</h2>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="form-contact left">
+                                <div class="form-contact-content">
+
+
+                                    <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-contact" accept-charset="utf-8">
+                                        <div class="form-box one-half name-contact">
+                                            <label for="input-name">{{ entry_name }}</label>
+                                            <input type="text" name="name" value="{{ name }}" id="input-name" class="form-control" />
+                                            {% if error_name %}
+                                                <div class="text-danger">{{ error_name }}</div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="form-box one-half password-contact">
+                                            <label for="input-email">{{ entry_email }}</label>
+                                            <input type="text" name="email" value="{{ email }}" id="input-email" class="form-control" />
+                                            {% if error_email %}
+                                                <div class="text-danger">{{ error_email }}</div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="form-box">
+                                            <label for="input-enquiry">{{ entry_enquiry }}</label>
+                                            <textarea name="enquiry" rows="10" id="input-enquiry" class="form-control">{{ enquiry }}</textarea>
+                                            {% if error_enquiry %}
+                                                <div class="text-danger">{{ error_enquiry }}</div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="form-box">
+                                            <button type="submit" class="contact">{{ button_submit }}</button>
+                                        </div>
+                                    </form><!-- /#form-contact -->
+                                </div><!-- /.form-contact-content -->
+                            </div><!-- /.form-contact left -->
+                        </div><!-- /.col-md-6 -->
+                        <div class="col-md-6">
+
+                            <div class="row-title">
+                                <h2>{{ text_map }}</h2>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div id="flat-map" class="pdmap">
+                                <div class="flat-maps" data-address="Azerbaijan, Baku, Suleyman Rahimov 178" data-height="444" data-images="catalog/view/theme/default/images/icons/map.png"></div>
+                                <div class="gm-map">
+                                    <div class="map"></div>
+                                </div>
+                            </div><!-- /#flat-map -->
+                        </div><!-- /.col-md-6 -->
+                    </div>
+
+
+                {{ content_bottom }}
+
+                </div>
+            </div>
+
+            {{ column_right }}
+
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.flat-iconbox style4 -->
+{{ footer }}

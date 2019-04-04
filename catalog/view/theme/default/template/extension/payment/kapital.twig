@@ -1,0 +1,23 @@
+<div class="buttons">
+	{% if action %}
+	<div class="pull-right">
+		<a href="{{ action }}" class="btn btn-primary" style="border:none; padding:0px 27px 0 27px;">{{ button_confirm }}</a>
+	</div>
+	{% else %}
+	<div class="pull-right alert alert-danger">
+		<b>{{ text_fail }}</b>
+	</div>
+	<div class="clearfix"></div>
+	<div class="pull-right">
+		<a href="#collapse-payment-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle btn btn-primary" style="border:none; padding:0px 27px 0 27px;">{{ button_reply }}</a>
+	</div>
+	{% endif %}
+</div>
+
+<!-- <form action="<?php echo $action; ?>" method="get" target="_blank">
+  <div class="buttons">
+    <div class="pull-right">
+      <input type="submit" value="<?php echo $button_confirm; ?>" class="btn btn-primary" />
+    </div>
+  </div>
+</form> -->

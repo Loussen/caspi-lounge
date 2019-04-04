@@ -1,0 +1,194 @@
+{{ header }}
+
+
+<section class="flat-breadcrumb">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="breadcrumbs">
+            {% for breadcrumb in breadcrumbs %}
+              <li class="{% if breadcrumb.order == "last" %}trail-end {% else %}trail-item{% endif %}">
+                <a href="{{ breadcrumb.href }}" title="">{{ breadcrumb.text }}</a>
+                  {% if breadcrumb.order != "last" %}<span><img src="catalog/view/theme/default/images/icons/arrow-right.png" alt=""></span>{% endif %}
+              </li>
+            {% endfor %}
+        </ul><!-- /.breacrumbs -->
+      </div><!-- /.col-md-12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section><!-- /.flat-breadcrumb -->
+
+
+
+<section class="flat-shop-cart">
+  <div class="container">
+    <div class="row">
+
+
+      {{ column_left }}
+
+      {% if column_left and column_right %}
+          {% set class = 'col-lg-7 col-md-4' %}
+      {% elseif column_left or column_right %}
+          {% set class = 'col-lg-9 col-md-8' %}
+      {% else %}
+          {% set class = 'col-lg-12 col-md-12' %}
+      {% endif %}
+
+      <div class="{{ class }}">
+
+        {{ content_top }}
+
+        <div class="flat-row-title style1">
+          <h3>{{ heading_title }}</h3>
+        </div>
+
+
+
+
+        {% if attention %}
+          <div class="alert alert-info"><i class="fa fa-info-circle"></i> {{ attention }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+          </div>
+        {% endif %}
+        {% if success %}
+          <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+          </div>
+        {% endif %}
+        {% if error_warning %}
+          <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+          </div>
+        {% endif %}
+
+
+        <form action="{{ action }}" method="post" enctype="multipart/form-data">
+          <div class="table-responsive table-cart">
+            <table class="table">
+              <thead>
+              <tr>
+                {#<td>{{ column_image }}</td>#}
+                <td>{{ column_image }} / {{ column_name }}</td>
+                  {#<td>{{ column_model }}</td>#}
+                <td>{{ column_quantity }}</td>
+                {#<td>{{ column_price }}</td>#}
+                <td>{{ column_total }}</td>
+                <td></td>
+              </tr>
+              </thead>
+              <tbody>
+
+              {% for product in products %}
+                <tr>
+                  <td class="clearfix">
+                    <div class="img-product">
+                      {% if product.thumb %}
+                      <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="mCS_img_loaded"></a>
+                      {% endif %}
+                    </div>
+                    <div class="name-product">
+                      <a href="{{ product.href }}">{{ product.name }}</a>
+                        {% if not product.stock %}
+                          <span class="text-danger">***</span>
+                        {% endif %}
+                        {% if product.option %}
+                            {% for option in product.option %} <br />
+                              <small>{{ option.name }}: {{ option.value }}</small>
+                            {% endfor %}
+                        {% endif %}
+                        {% if product.reward %}<br />
+                          <small>{{ product.reward }}</small>
+                        {% endif %}
+                        {% if product.recurring %}<br />
+                          <span class="label label-info">{{ text_recurring_item }}</span>
+                          <small>{{ product.recurring }}</small>
+                        {% endif %}
+                    </div>
+                    <div class="price">
+                      {{ product.price }}
+                    </div>
+                  </td>
+                  <td>
+                    <div class="quanlity">
+                      {#<span class="btn-down"></span>#}
+                      <input type="number" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" size="1" min="1" />
+                      {#<span class="btn-up"></span>#}
+                      <button type="submit" data-toggle="tooltip" title="{{ button_update }}" class="btn btn-default"><i class="fa fa-refresh"></i></button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="total">
+                      {{ product.total }}
+                    </div>
+                  </td>
+                  <td>
+                      <button type="button" class="btn btn-link" data-toggle="tooltip" title="{{ button_remove }}" onclick="cart.remove('{{ product.cart_id }}');"><img src="catalog/view/theme/default/images/icons/delete.png" alt="{{ button_remove }}"></button>
+                  </td>
+                </tr>
+              {% endfor %}
+              {% for voucher in vouchers %}
+                <tr>
+                  <td></td>
+                  <td class="text-left">{{ voucher.description }}</td>
+                  <td class="text-left"></td>
+                  <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
+                      <input type="text" name="" value="1" size="1" disabled="disabled" class="form-control" />
+                      <span class="input-group-btn">
+                  <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="voucher.remove('{{ voucher.key }}');"><i class="fa fa-times-circle"></i></button>
+                  </span></div></td>
+                  <td class="text-right">{{ voucher.amount }}</td>
+                  <td class="text-right">{{ voucher.amount }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+
+            </table>
+          </div>
+        </form>
+
+
+        {% if modules %}
+        <h2>{{ text_next }}</h2>
+        <p>{{ text_next_choice }}</p>
+        <div class="panel-group" id="accordion">
+          {% for module in modules %}
+            {{ module }}
+          {% endfor %}
+        </div>
+        {% endif %}
+
+
+
+        <div class="row cart-totals">
+          <div class="col-sm-4 col-sm-offset-8">
+            <table>
+              {% for total in totals %}
+                <tr>
+                  <td class="text-right"><strong>{{ total.title }}:</strong></td>
+                  <td class="text-right">{{ total.text }}</td>
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+
+
+
+        <div class="buttons clearfix btn-cart-totals">
+          <div class="pull-left"><a href="{{ continue }}" class="update">{{ button_shopping }}</a></div>
+          <div class="pull-right"><a href="{{ checkout }}" class="checkout">{{ button_checkout }}</a></div>
+        </div>
+
+
+        {{ content_bottom }}
+
+      </div><!-- /.col-lg-8 -->
+
+      {{ column_right }}
+
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section><!-- /.flat-shop-cart -->
+
+{{ footer }} 

@@ -1,0 +1,227 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-html" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+          {% for breadcrumb in breadcrumbs %}
+            <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+          {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+      <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-html" class="form-horizontal">
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-name">{{ entry_name }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="name" value="{{ name }}" placeholder="{{ entry_name }}" id="input-name" class="form-control" />
+                {% if error_name %}
+                  <div class="text-danger">{{ error_name }}</div>
+                {% endif %}
+            </div>
+          </div>
+          {% for language in languages %}
+            <div class="form-group required">
+              <label class="col-sm-2 control-label" for="input-title{{ language.language_id }}"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" />&nbsp;{{ entry_title }}</label>
+              <div class="col-sm-10">
+                <input type="text" name="module_description[{{ language.language_id }}][title]" placeholder="{{ entry_title }}" id="input-heading{{ language.language_id }}" value="{{ module_description[language.language_id]['title'] is defined ? module_description[language.language_id]['title'] : '' }}" class="form-control" />
+                  {% if error_title[language.language_id] is defined %}
+                    <div class="text-danger">{{ error_title[language.language_id] }}</div>
+                  {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-show-title">{{ entry_show_title }}</label>
+            <div class="col-sm-10">
+              <select name="show_title" id="input-show-title" class="form-control">
+                {% if show_title %}
+                  <option value="1" selected="selected">{{ text_yes }}</option>
+                  <option value="0">{{ text_no }}</option>
+                {% else %}
+                  <option value="1">{{ text_yes }}</option>
+                  <option value="0" selected="selected">{{ text_no }}</option>
+                {% endif %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-show-blog-title"><span data-toggle="tooltip" title="{{ help_show_blog_title }}">{{ entry_show_blog_title }}</label>
+            <div class="col-sm-10">
+              <select name="show_blog_title" id="input-show-blog-title" class="form-control">
+                {% if show_blog_title  ==  '2' %}
+                  <option value="1">{{ text_yes }}</option>
+                  <option value="0">{{ text_no }}</option>
+                  <option value="2" selected="selected">{{ text_from_blog }}</option>
+                {% elseif  show_blog_title  ==  '1' %}
+                  <option value="1" selected="selected">{{ text_yes }}</option>
+                  <option value="0">{{ text_no }}</option>
+                  <option value="2">{{ text_from_blog }}</option>
+                {% else %}
+                  <option value="1">{{ text_yes }}</option>
+                  <option value="0" selected="selected">{{ text_no }}</option>
+                  <option value="2">{{ text_from_blog }}</option>
+                {% endif %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-show-blogs"><span data-toggle="tooltip" title="{{ help_show_blogs }}">{{ entry_show_blogs }}</label>
+            <div class="col-sm-10">
+              <select name="show_blogs" id="input-show-blogs" class="form-control">
+                {% if show_blogs %}
+                  <option value="1" selected="selected">{{ text_yes }}</option>
+                  <option value="0">{{ text_no }}</option>
+                {% else %}
+                  <option value="1">{{ text_yes }}</option>
+                  <option value="0" selected="selected">{{ text_no }}</option>
+                {% endif %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-num-columns">{{ entry_num_columns }}</label>
+            <div class="col-sm-10">
+              <select name="num_columns" id="input-num-columns" class="form-control">
+                {% if num_columns == '1' %}
+                  <option value="1" selected="selected">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                {% elseif num_columns == '2' %}
+                  <option value="1">1</option>
+                  <option value="2" selected="selected">2</option>
+                  <option value="3">3</option>
+                {% else %}
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3" selected="selected">3</option>
+                {% endif %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-limit"><span data-toggle="tooltip" title="{{ help_limit }}">{{ entry_limit }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="limit" value="{{ limit }}" placeholder="{{ entry_limit }}" id="input-limit" class="form-control" />
+                {% if error_limit %}
+                  <div class="text-danger">{{ error_limit }}</div>
+                {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-show-image">{{ entry_show_image }}</label>
+            <div class="col-sm-10">
+              <select name="show_image" id="input-show-image" class="form-control">
+                {% if show_image %}
+                  <option value="1" selected="selected">{{ text_yes }}</option>
+                  <option value="0">{{ text_no }}</option>
+                {% else %}
+                  <option value="1">{{ text_yes }}</option>
+                  <option value="0" selected="selected">{{ text_no }}</option>
+                {% endif %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-width">{{ entry_width }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="width" value="{{ width }}" placeholder="{{ entry_width }}" id="input-width" class="form-control" />
+                {% if error_width %}
+                  <div class="text-danger">{{ error_width }}</div>
+                {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-height">{{ entry_height }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="height" value="{{ height }}" placeholder="{{ entry_height }}" id="input-height" class="form-control" />
+                {% if error_height %}
+                  <div class="text-danger">{{ error_height }}</div>
+                {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-tags-to-show"><span data-toggle="tooltip" title="{{ help_tags_to_show }}">{{ entry_tags_to_show }}</span></label>
+            <div class="col-sm-10">
+              <input type="text" name="tags" value="" placeholder="{{ entry_tags_to_show }}" id="input-tags-to-show" class="form-control" />
+              <div id="tags-to-show" class="well well-sm" style="height: 150px; overflow: auto;">
+                {% for tag_to_show in tags_to_show %}
+                  <div id="tag-to-show{{ tag_to_show.tlttag_id }}"><i class="fa fa-minus-circle"></i> {{ tag_to_show.title }}
+                    <input type="hidden" name="tags_to_show[]" value="{{ tag_to_show.tlttag_id }}" />
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-template"><span data-toggle="tooltip" title="{{ help_template }}">{{ entry_template }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="template" value="{{ template }}" placeholder="{{ entry_template }}" id="input-template" class="form-control" />
+                {% if error_template %}
+                  <div class="text-danger">{{ error_template }}</div>
+                {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+            <div class="col-sm-10">
+              <select name="status" id="input-status" class="form-control">
+                {% if status %}
+                  <option value="1" selected="selected">{{ text_enabled }}</option>
+                  <option value="0">{{ text_disabled }}</option>
+                {% else %}
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %}
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript">
+  // Tags
+  $('input[name=\'tags\']').autocomplete({
+      'source': function(request, response) {
+          $.ajax({
+              url: 'index.php?route=extension/tltblog/tlttag/autocomplete&user_token={{ user_token }}&filter_title=' +  encodeURIComponent(request),
+              dataType: 'json',
+              success: function(json) {
+                  response($.map(json, function(item) {
+                      return {
+                          label: item['title'],
+                          value: item['tlttag_id']
+                      }
+                  }));
+              }
+          });
+      },
+      'select': function(item) {
+          $('input[name=\'tags\']').val('');
+
+          $('#tags-to-show' + item['value']).remove();
+
+          $('#tags-to-show').append('<div id="tags-to-show' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="tags_to_show[]" value="' + item['value'] + '" /></div>');
+      }
+  });
+
+  $('#tags-to-show').delegate('.fa-minus-circle', 'click', function() {
+      $(this).parent().remove();
+  });
+</script>
+{{ footer }}

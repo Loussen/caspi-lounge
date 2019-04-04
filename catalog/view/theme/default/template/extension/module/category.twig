@@ -1,0 +1,22 @@
+<div class="widget widget-categories">
+    <div class="widget-title">
+        <div class="h3">{{ heading_title }}<span></span></div>
+    </div>
+    <ul class="cat-list style1 widget-content">
+    	{% for category in categories %}
+        <li{% if category.category_id == category_id %} class="active"{% endif %}>
+        	<a href="{{ category.href }}">{{ category.name }} </a>
+        	{% if category.children %}
+            {#<span{% if category.category_id == category_id %} class="active"{% endif %}></span>#}
+            <ul class="cat-child">
+            	{% for child in category.children %}
+                <li{% if child.category_id == child_id %} class="active"{% endif %}>
+                	<a href="{{ child.href }}">{{ child.name }}</a>
+                </li>
+        		{% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul><!-- /.cat-list -->
+</div><!-- /.widget-categories -->

@@ -1,0 +1,39 @@
+{% if show_path %}
+    <h2>{{ path_title }}</h2>
+{% endif %}
+{% if type == 'blogs' %}
+    <ul>
+      {% for tltblog in tltblogs %}
+          <li><a href="{{ tltblog.href }}">{{ tltblog.title }}</a></li>
+      {% endfor %}
+    </ul>
+{% elseif type == 'tags' %}
+    <ul>
+      {% for tlttag in tlttags %}
+          <li><a href="{{ tlttag.href }}">{{ tlttag.title }}</a></li>
+      {% endfor %}
+    </ul>
+{% else %}
+    <div class="row">
+        <div class="col-sm-6">
+            <ul>
+                <li>{{ heading_blogs }}</li>
+                <ul>
+                  {% for tltblog in tltblogs %}
+                      <li><a href="{{ tltblog.href }}">{{ tltblog.title }}</a></li>
+                  {% endfor %}
+                </ul>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <ul>
+                <li>{{ heading_tags }}</li>
+                <ul>
+                  {% for tlttag in tlttags %}
+                      <li><a href="{{ tlttag.href }}">{{ tlttag.title }}</a></li>
+                  {% endfor %}
+                </ul>
+            </ul>
+        </div>
+    </div>
+{% endif %}

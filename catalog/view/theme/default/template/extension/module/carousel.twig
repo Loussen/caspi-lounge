@@ -1,0 +1,19 @@
+<section class="flat-row flat-brand style2" id="carousel{{ module }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="owl-carousel-5">
+          {% for banner in banners %}
+          <li>
+            {% if banner.link %}
+            <a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>
+            {% else %}
+            <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul><!-- /.owl-carousel-5 -->
+      </div><!-- /.col-md-12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section><!-- /.flat-brand -->

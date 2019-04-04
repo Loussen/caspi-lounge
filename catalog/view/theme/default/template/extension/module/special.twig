@@ -1,0 +1,78 @@
+    <section class="flat-imagebox specalproducts">
+      <div class="container1">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="product-tab">
+              <ul class="tab-list">
+                <li class="active">{{ heading_title }}</li>
+              </ul>
+            </div><!-- /.product-tab -->
+          </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+        <div class="box-product">
+          <div class="row">
+
+            {% if setting.limit==3 %}
+                {% set class = 'col-lg-4 col-sm-6' %}
+            {% else %}
+                {% set class = 'col-lg-3 col-sm-6' %}
+            {% endif %}
+
+            {% for product in products %}
+            <div class="{{ class }}">
+              <div class="product-box">
+                <div class="imagebox">
+                  <!--span class="item-new">NEW</span-->
+                  {% if product.special %}
+                  <span class="item-sale">SALE</span>
+                  {% endif %}
+                   <ul class="box-image owl-carousel-1">
+                    <li>
+                      <a href="{{ product.href }}" title="{{ product.name }}">
+                        <img src="{{ product.thumb }}" alt="{{ product.name }}">
+                      </a>
+                    </li>
+                  </ul><!-- /.box-image -->
+                  <div class="box-content">
+                    <div class="cat-name">
+                      {#<a href="{{ product.href }}" title="">Laptops</a>#}
+                    </div>
+                    <div class="product-name">
+                      <a href="{{ product.href }}" title="{{ product.name }}">{{ product.name }}</a>
+                    </div>
+                    {% if product.price %}
+                    <div class="price">
+                      {% if product.special %}
+                      <span class="sale">{{ product.special }}</span>
+                      <span class="regular">{{ product.price }}</span>
+                      {% else %}
+                      <span class="sale">{{ product.price }}</span>
+                      {% endif %}
+                    </div>
+                    {% endif %}
+                  </div><!-- /.box-content -->
+                  <div class="box-bottom">
+                    <div class="btn-add-cart">
+                      <button class="btn btn-success" type="button" data-toggle="tooltip" title="{{ button_cart }}" onclick="cart.add('{{ product.product_id }}');"><img src="image/catalog/icons/add-cart.png" alt="{{ button_cart }}">{{ button_cart }}</button>
+                      {#<a href="#" title="" onclick="cart.add('{{ product.product_id }}');">#}
+                        {#<img src="image/catalog/icons/add-cart.png" alt="">{{ button_cart }}#}
+                      {#</a>#}
+                    </div>
+                    <div class="compare-wishlist">
+                      <a href="#" class="compare" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');">
+                        <img src="image/catalog/icons/compare.png" alt="{{ button_compare }}">{{ button_compare }}
+                      </a>
+                      <a href="#" class="wishlist" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');">
+                        <img src="image/catalog/icons/wishlist.png" alt="{{ button_wishlist }}">{{ button_wishlist }}
+                      </a>
+                    </div>
+                  </div><!-- /.box-bottom -->
+                </div><!-- /.imagebox -->
+              </div> 
+            </div><!-- /.col-lg-3 col-sm-6 -->
+            {% endfor %}
+
+            </div><!-- /.row -->
+        </div><!-- /.box-product -->
+      </div><!-- /.container -->
+    </section><!-- /.flat-imagebox -->

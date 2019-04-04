@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>d_opencart_patch</name>
+    <code>d_opencart_patch</code>
+    <description>Permission fixes in Opencart 3.x</description>
+    <version>3.x</version>
+    <author>Dreamvention</author>
+    <link>http://dreamvention.com</link>
+    <file path="admin/controller/user/user_permission.php">
+        <operation error="skip">
+            <search><![CDATA[$path[] = $file . '/*';]]></search>
+            <add position="after"><![CDATA[
+            //d_opencart_patch.xml 1
+            $files[] = $file;
+            ]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$permission = substr($controller, 0, strrpos($controller, '.'));]]></search>
+            <add position="replace"><![CDATA[
+            //d_opencart_patch.xml 2
+            $permission = (strrpos($controller, '.') !== false) ? substr($controller, 0, strrpos($controller, '.')) : $controller;
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/controller/extension/installer.php">
+        <operation error="skip">
+            <search><![CDATA[$modification_info = $this->model_setting_modification->getModificationByCode($code);]]></search>
+            <add position="after"><![CDATA[
+            //d_opencart_patch.xml 1
+            if (strpos($code, 'd_') === 0 && $modification_info) {
+                $this->model_setting_modification->deleteModification($modification_info['modification_id']);
+                $modification_info = false; 
+            }
+            ]]></add>
+        </operation>
+    </file>
+</modification>

@@ -1,0 +1,9 @@
+{% if modules %}
+<div class="col-lg-3 col-md-4 hidden-md-down">
+    <div class="sidebar sidebar-left">
+        {% for module in modules %}
+            {{ module }}
+        {% endfor %}
+    </div><!-- /.sidebar -->
+</div><!-- /.col-lg-3 col-md-4 -->
+{% endif %}

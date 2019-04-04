@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html dir="{{ direction }}" lang="{{ lang }}"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html dir="{{ direction }}" lang="{{ lang }}"><!--<![endif]-->
+<head>
+  <!-- Basic Page Needs -->
+  <meta charset="UTF-8">
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+  <title>{{ title }}</title>
+  <base href="{{ base }}" />
+  {% if description %}
+    <meta name="description" content="{{ description }}" />
+  {% endif %}
+  {% if keywords %}
+    <meta name="keywords" content="{{ keywords }}" />
+  {% endif %}
+
+  <meta name="author" content="{{ author }}">
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Boostrap style -->
+  <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/bootstrap.min.css">
+
+  {% if lang == "az" %}
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700&amp;subset=cyrillic,cyrillic-ext,latin-ext&text=%21%22%23%24%25%26%27%28%29%30+,-./0123456789:;%3C=%3E%3F@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`%E2%82%AC„‘’“”™©®°µ±÷abcdefghijklmnopqrstuvwxyz{|}~%C3%9C%C3%96%C4%9E%C4%B0%C6%8F%C3%87%C5%9E%C3%BC%C3%B6%C4%9F%C4%B1%C9%99%C3%A7%C5%9F">
+  {% else %}
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700&amp;subset=cyrillic,cyrillic-ext,latin-ext">
+  {% endif %}
+
+
+  <!-- Theme style -->
+  <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/style.css">
+
+  <!-- Reponsive -->
+  <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/responsive.css">
+
+  <link rel="shortcut icon" href="catalog/view/theme/default/images/favicon.png">
+
+  {% for style in styles %}
+    <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+  {% endfor %}
+
+  {% for link in links %}
+    <link href="{{ link.href }}" rel="{{ link.rel }}" />
+  {% endfor %}
+
+  {% for analytic in analytics %}
+    {{ analytic }}
+  {% endfor %}
+
+</head>
+<body class="{{ body_class }}">
+
+
+<div class="boxed">
+
+  <div class="overlay"></div>
+
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="clear-loading loading-effect-2">
+      <span></span>
+    </div>
+  </div><!-- /.preloader -->
+
+
+
+  <div id="alert-popups" class="popup-newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-8">
+          <div class="popup">
+            <span></span>
+            <div class="popup-text">
+
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section id="header" class="header">
+    <div class="header-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 hidden-md-down">
+            <ul class="flat-support text-center">
+              <li><a href="#" title=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li><a href="#" title=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+              <li><a href="#" title=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
+              <li><a href="#" title=""><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+            </ul><!-- /.flat-support -->
+          </div><!-- /.col-md-4 -->
+          <div class="col-md-5 hidden-md-down">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="flat-infomation">
+                  <li class="phone">
+                    <i class="fa fa-phone"></i> <a href="{{contact}}" title="">{{ telephone }}</a>
+                  </li>
+                </ul><!-- /.flat-infomation -->
+              </div><!-- /.col-md-6 -->
+              <div class="col-md-6">
+                <ul class="flat-infomation">
+                  <li class="phone">
+                    <i class="fa fa-phone"></i> <a href="{{contact}}" title="">+994 (12) 555-16-26<!--{{ header_email }}--></a>
+                  </li>
+                </ul><!-- /.flat-infomation -->
+              </div><!-- /.col-md-6 -->
+            </div>
+          </div>
+          <div class="col-md-4">
+            <ul class="flat-unstyled">
+              <li class="account">
+                <a href="{{ account }}" title="" class="dropdown-toggle1" data-toggle="dropdown">{{ text_account }}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <ul class="unstyled">
+
+                  {% if logged %}
+                    <li><a href="{{ account }}">{{ text_account }}</a></li>
+                    <li><a href="{{ order }}">{{ text_order }}</a></li>
+                    <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
+                    <li><a href="{{ download }}">{{ text_download }}</a></li>
+                    <li><a href="{{ logout }}">{{ text_logout }}</a></li>
+                  {% else %}
+                    <li><a href="{{ register }}">{{ text_register }}</a></li>
+                    <li><a href="{{ login }}">{{ text_login }}</a></li>
+                  {% endif %}
+
+                </ul><!-- /.unstyled -->
+              </li>
+
+
+              {{ currency }}
+              {{ language }}
+
+
+            </ul><!-- /.flat-unstyled -->
+          </div><!-- /.col-md-4 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.header-top -->
+    <div class="header-middle">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+
+            <div id="logo" class="logo">
+              {% if logo %}
+                <a href="{{ home }}" title="{{ name }}" ><img src="catalog/view/theme/default/images/logos/logo.svg" alt="{{ name }}" /></a>
+              {% else %}
+                <a href="{{ home }}">{{ name }}</a>
+              {% endif %}
+            </div><!-- /#logo -->
+
+            <div id="search_open_button" class="hidden-md-up">
+              <button type="button" data-loading-text="{{ text_search }}" class="btn btn-inverse btn-block btn-lg">
+                <img src="catalog/view/theme/default/images/icons/search.png" alt="">
+              </button>
+            </div>
+
+          </div><!-- /.col-md-3 -->
+          <div class="col-md-6">
+
+            {{ search }}
+
+          </div><!-- /.col-md-6 -->
+          <div class="col-md-3">
+            <div class="box-cart">
+              {#<div class="inner-box">#}
+              {#<ul class="menu-compare-wishlist">#}
+              {#<li class="compare">#}
+              {#<a href="{{ compare }}" title="{{ text_compare }}">#}
+              {#<img src="catalog/view/theme/default/images/icons/compare.png" alt="">#}
+              {#</a>#}
+              {#</li>#}
+              {#<li class="wishlist">#}
+              {#<a href="{{ wishlist }}" title="{{ text_wishlist }}">#}
+              {#<img src="catalog/view/theme/default/images/icons/wishlist.png" alt="">#}
+              {#</a>#}
+              {#</li>#}
+              {#</ul><!-- /.menu-compare-wishlist -->#}
+              {#</div><!-- /.inner-box -->#}
+
+
+              {{ cart }}
+
+
+
+            </div><!-- /.box-cart -->
+          </div><!-- /.col-md-3 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.header-middle -->
+    <div class="header-bottom clearfix">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-2">
+
+            {{ menu }}
+
+          </div><!-- /.col-md-3 -->
+          <div class="col-md-9 col-10">
+            <div class="nav-wrap">
+              <div id="mainnav" class="mainnav">
+                <ul class="menu">
+
+                  <li class="column-1"><a href="{{home}}">{{text_home}}</a></li>
+                  <li class="column-1"><a href="{{about}}">{{text_about}}</a></li>
+                  <li class="column-1"><a href="{{delivery}}">{{text_delivery}}</a></li>
+                  <li class="column-1"><a href="{{payment}}">{{text_payment}}</a></li>
+                  <li class="column-1"><a href="{{services}}">{{text_services}}</a></li>
+                  <li class="column-1"><a href="{{ manufacturer }}">{{text_manufacturer}}</a></li>
+                  <li class="column-1"><a href="{{special}}">{{text_special}}</a></li>
+                  <li class="column-1"><a href="{{contact}}">{{text_contact}}</a></li>
+
+                </ul><!-- /.menu -->
+              </div><!-- /.mainnav -->
+            </div><!-- /.nav-wrap -->
+
+
+            <div class="btn-menu">
+              <span></span>
+            </div><!-- //mobile menu button -->
+          </div><!-- /.col-md-9 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.header-bottom -->
+  </section><!-- /#header -->

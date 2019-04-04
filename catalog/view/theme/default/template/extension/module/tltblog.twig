@@ -1,0 +1,57 @@
+{% if show_title %}
+  <h3>{{ heading_title }}</h3>
+{% endif %}
+<div class="row tltblog">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    {% set class_cols = 'col-lg-' ~ 12 / num_columns ~ ' col-md-' ~ 12 / num_columns ~ 'col-sm-12 col-xs-12' %}
+    {% set rowcounter = 0 %}
+    <div class="row tltblog">
+      {% for tltblog in tltblogs %}
+      <div class="{{ class_cols }}">
+        <div class="row">
+          {% if (show_image) %}
+            <div class="col-sm-3">
+              {% if (tltblog['show_description']) %}
+                <a href="{{ tltblog['href'] }}"><img src="{{ tltblog['thumb'] }}" alt="{{ tltblog['title'] }}" title="{{ tltblog['title'] }}" class="img-thumbnail" /></a>
+              {% else %}
+                <a><img src="{{ tltblog['thumb'] }}" alt="{{ tltblog['title'] }}" title="{{ tltblog['title'] }}" class="img-thumbnail" /></a>
+              {% endif %}
+            </div>
+            <div class="col-sm-9">
+              {% if (tltblog['show_description']) %}
+                {% if (tltblog['show_title']) %}
+                  <h4><a href="{{ tltblog['href'] }}">{{ tltblog['title'] }}</a></h4>
+                {% endif %}
+              {% else %}
+                {% if (tltblog['show_title']) %}
+                  <h4><a>{{ tltblog['title'] }}</a></h4>
+                {% endif %}
+              {% endif %}
+              <div>{{ tltblog['intro'] }}</div>
+            </div>
+          {% else %}
+            <div class="col-sm-12">
+              {% if (tltblog['show_description']) %}
+                {% if (tltblog['show_title']) %}
+                  <h4><a href="{{ tltblog['href'] }}">{{ tltblog['title'] }}</a></h4>
+                {% endif %}
+              {% else %}
+                {% if (tltblog['show_title']) %}
+                  <h4><a>{{ tltblog['title'] }}</a></h4>
+                {% endif %}
+              {% endif %}
+              <div>{{ tltblog['intro'] }}</div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      {% set rowcounter = rowcounter + 1 %}
+      {% if (rowcounter == num_columns) %}
+    </div>
+    <div class="row tltblog">
+      {% set rowcounter = 0 %}
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+{{ header }}
+<div id="common-home">
+  {% if content_top %}
+  <div  class="content_top">
+    <div  class="container">
+      <div class="row">
+        <div class="col-sm-3 hidden-md-down">
+          {{ menu }}
+        </div>
+        {% if column_right %}
+        {% set top_class = 'col-sm-6' %}
+        {% else %}
+        {% set top_class = 'col-sm-9' %}
+        {% endif %}
+        <div class="{{ top_class }} home-slider-col">
+            {{ content_top }}
+        </div>
+        {% if column_right %}
+        {{ column_right }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <div class="column_center">
+    <div class="container">
+      <div class="row">
+        {% if column_left %}
+        {{ column_left }}
+        {% endif %}
+        {% if column_left %}
+        {% set class = 'col-sm-9' %}
+        {% else %}
+        {% set class = 'col-sm-12' %}
+        {% endif %}
+        <div id="content" class="{{ class }}">
+          {{ content_bottom }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ footer }}
