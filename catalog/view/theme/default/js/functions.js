@@ -33,25 +33,6 @@ function backTop() {
 }
 
 function getGlobalSpecialRequest(t) {
-    var p = $(t).parents(".special-request");
     $(t).hide();
-    p.find(".special-requests-text").show();
-    p.find("span").show();
-}
-
-
-function addToOrderModal(t) {
-    var modal = $("#addToOrderModal");
-    var p = $(t);
-    modal.fadeIn();
-}
-
-
-function SuccessBox(type) {
-    var box = $("#successBox");
-    if (type === 'show') {
-        box.fadeIn();
-    } else {
-        box.fadeOut();
-    }
+    $(".special-requests-text").show();
 }

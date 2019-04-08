@@ -1,290 +1,54 @@
-<footer class="style2">
-    <div class="container">
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <img src="catalog/view/theme/default/img/back-top.png" class="back-top" onclick="backTop()">
+        </div>
+    </div>
+</div>
+<div class="container-fluid footer-box">
+    <div class="container menu-padding">
         <div class="row">
-            <div class="col-lg-4 col-sm-6">
-                <div class="widget-ft widget-about style2">
-                    <div class="logo logo-ft">
-                        <a href="{{ home }}" title="{{ name }}">
-                            <img src="catalog/view/theme/default/images/logos/logo_white.svg" alt="{{ name }}">
-                        </a>
-                    </div><!-- /.logo-ft -->
-                    <div class="widget-content">
-                        <div class="icon">
-                            <img src="catalog/view/theme/default/images/icons/call-2.png" alt="">
-                        </div>
-                        <div class="info">
-                            <p class="adress">
-                                <i class="fa fa-map-marker"></i> {{ footer_address }}
-                            </p>
-                            <p class="phone">
-                                <i class="fa fa-phone"></i> +994 (12) 555-16-26
-                            </p>
-                            <p class="phone">
-                                <i class="fa fa-mobile"></i> {{ footer_telephone }}
-                            </p>
-                            <p class="whatsapp">
-                                <i class="fa fa-whatsapp"></i> {{ footer_telephone }}
-                            </p>
-                            {#<p class="skype">#}
-                            {#<i class="fa fa-skype"></i> techmart.az#}
-                            {#</p>#}
-                            <p class="email">
-                                <i class="fa fa-envelope"></i> {{ footer_email }}
-                            </p>
-                            <p class="time">
-                                <i class="fa fa-clock-o"></i> {{ footer_open }}
-                            </p>
-                        </div>
-                    </div><!-- /.widget-content -->
-                </div><!-- /.widget-about -->
-            </div><!-- /.col-lg-3 col-md-6 -->
-            <div class="col-lg-3 col-sm-6">
-                <div class="widget-ft widget-categories-ft style2">
-                    <div class="widget-title">
-                        <div class="h3 text-uppercase">{{ text_service }}</div>
-                    </div>
-                    <ul class="cat-list-ft">
-                        {% if informations %}
-                            {% for information in informations %}
-                                <li><a href="{{ information.href }}"><i class="fa fa-angle-right"></i> {{ information.title }}</a></li>
-                            {% endfor %}
-                        {% endif %}
-                    </ul><!-- /.cat-list-ft -->
+            <div class="col-12">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12154.961426664478!2d49.88385725!3d40.3924468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d30833d972d%3A0x47e813ce6ab12211!2zWsmZZsmZcmFuIEhvc3BpdGFs!5e0!3m2!1saz!2s!4v1554181376445!5m2!1saz!2s" frameborder="0" style="border:0;width: 100%;height: 350px;" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-left">
+                <p class="footer-information">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from “de Finibus Bonorum et Malorum” by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+            </div>
+            <div class="col text-right">
+                <ul class="footer-contact">
+                    <li>2901 COLUMBIA PK ARLINGTON, VA22204</li>
+                    <li>CALL: (703) 566-4173</li>
+                    <li>email: info@caspilounge.com</li>
+                </ul>
+            </div>
+        </div>
 
-                    <div class="app-list">
-                        <a href="https://play.google.com/store/apps/details?id=az.techmart.techmart" target="_blank" rel="nofollow"><img src="/catalog/view/theme/default/images/google_play_icon.png" alt="Google Play"></a>
-                    </div>
-
-                </div><!-- /.widget-categories-ft -->
-            </div><!-- /.col-lg-3 col-md-6 -->
-            <div class="col-lg-2 col-sm-6">
-                <div class="widget-ft widget-menu style2">
-                    <div class="widget-title">
-                        <div class="h3 text-uppercase">{{ text_extra }}</div>
-                    </div>
-                    <ul>
-                        <li><a href="{{ manufacturer }}"><i class="fa fa-angle-right"></i> {{ text_manufacturer }}</a></li>
-                        {#<li><a href="{{ voucher }}"><i class="fa fa-angle-right"></i> {{ text_voucher }}</a></li>#}
-                        {#<li><a href="{{ affiliate }}"><i class="fa fa-angle-right"></i> {{ text_affiliate }}</a></li>#}
-                        <li><a href="{{ special }}"><i class="fa fa-angle-right"></i> {{ text_special }}</a></li>
-                        <li><a href="{{ account }}"><i class="fa fa-angle-right"></i> {{ text_account }}</a></li>
-                        {#<li><a href="{{ order }}"><i class="fa fa-angle-right"></i> {{ text_order }}</a></li>#}
-                        {#<li><a href="{{ wishlist }}"><i class="fa fa-angle-right"></i> {{ text_wishlist }}</a></li>#}
-                        {#<li><a href="{{ newsletter }}"><i class="fa fa-angle-right"></i> {{ text_newsletter }}</a></li>#}
-                        <li><a href="{{ contact }}"><i class="fa fa-angle-right"></i> {{ text_contact }}</a></li>
-                        {#<li><a href="{{ return }}"><i class="fa fa-angle-right"></i> {{ text_return }}</a></li>#}
-                        {#<li><a href="{{ sitemap }}"><i class="fa fa-angle-right"></i> {{ text_sitemap }}</a></li>#}
-                    </ul>
-
-                    <div class="app-list">
-                        <a href="#" target="_blank" rel="nofollow"><img src="/catalog/view/theme/default/images/app_store_icon.png" alt="App Store"></a>
-                    </div>
-
-                </div><!-- /.widget-menu -->
-            </div><!-- /.col-lg-2 col-md-6 -->
-            <div class="col-lg-3 col-sm-6">
-                <div class="widget-ft widget-newsletter style2">
-                    <div class="widget-title">
-                        <div class="h3 text-uppercase">{{ text_social }}</div>
-                    </div>
-                    <ul class="social-list">
-                        <li>
-                            <a href="https://www.facebook.com/techmart.azerbaijan/" target="_blank" rel="nofollow" title="Facebook">
-                                <i class="fa fa-facebook" aria-hidden="true"></i> Facebook
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Twitter">
-                                <i class="fa fa-twitter" aria-hidden="true"></i> Twitter
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Instagram">
-                                <i class="fa fa-instagram" aria-hidden="true"></i> Instagram
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Vk.com">
-                                <i class="fa fa-vk" aria-hidden="true"></i> Vk.com
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="google">
-                                <i class="fa fa-google" aria-hidden="true"></i> Google
-                            </a>
-                        </li>
-                    </ul><!-- /.social-list -->
-
-
-                    <ul class="list-inline payment">
-                        <li class="list-inline-item"><i class="fa fa-cc-visa"></i></li>
-                        <li class="list-inline-item"><i class="fa fa-cc-paypal"></i></li>
-                        <li class="list-inline-item"><i class="fa fa-cc-mastercard"></i></li>
-                        <li class="list-inline-item"><i class="fa fa-cc-discover"></i></li>
-                        <li class="list-inline-item"><i class="fa fa-cc-amex"></i></li>
-                    </ul><!-- /.payment-list -->
-
-
-                </div><!-- /.widget-newsletter -->
-            </div><!-- /.col-lg-4 col-md-6 -->
-        </div><!-- /.row -->
-
-    </div><!-- /.container -->
-
-    <div class="footer-bottom style2">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="copyright">{{ powered }}</div>
-                </div>
-                <div class="col-md-6 text-right">
-                    <div class="counters">
-                        <!-- Yandex.Metrika informer -->
-                        <a href="https://metrika.yandex.ru/stat/?id=51000914&amp;from=informer"
-                           target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/51000914/1_1_FFFFFFFF_EFEFEFFF_0_pageviews"
-                                                               style="width:80px; height:15px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" class="ym-advanced-informer" data-cid="51000914" data-lang="ru" /></a>
-                        <!-- /Yandex.Metrika informer -->
-
-
-                        <!--LiveInternet counter--><script type="text/javascript">
-                            document.write("<a href='//www.liveinternet.ru/click' "+
-                                "target=_blank><img src='//counter.yadro.ru/hit?t26.2;r"+
-                                escape(document.referrer)+((typeof(screen)=="undefined")?"":
-                                    ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
-                                    screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
-                                ";h"+escape(document.title.substring(0,150))+";"+Math.random()+
-                                "' alt='' title='LiveInternet: показано число посетителей за"+
-                                " сегодня' "+
-                                "border='0' width='88' height='15'><\/a>")
-                        </script><!--/LiveInternet-->
-                    </div>
-                </div><!-- /.col-md-12 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </div><!-- /.footer-bottom -->
-</footer><!-- /footer -->
-
-<button class="btn btn-info btn-lg show" id="top_page"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
-<a class="btn btn-primary btn-lg" id="bottom_tawk_to" href="javascript:void(Tawk_API.toggle())"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
-
-<div class="btn-group visible-xs" id="mobile-call">
-    <a href="https://api.whatsapp.com/send?phone=994517774433&amp;text=Salam" class="btn btn-success btn-lg text-uppercase"><i class="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
-    <a href="tel:+994517774433" class="btn btn-info btn-lg text-uppercase"><i class="fa fa-phone" aria-hidden="true"></i> Zəng et</a>
+        <div class="row">
+            <div class="col text-center">
+                <h4 class="footer-head">FOLLOW ALONG</h4>
+                <ul class="social-box">
+                    <li><a href="javascript:void(0);"><i class="fab fa-instagram"></i> </a></li>
+                    <li><a href="javascript:void(0);"><i class="fab fa-facebook"></i> </a></li>
+                    <li><a href="javascript:void(0);"><i class="fab fa-youtube-square"></i> </a></li>
+                    <li><a href="javascript:void(0);"><i class="fab fa-tripadvisor"></i> </a></li>
+                    <li><a href="javascript:void(0);"><i class="fab fa-twitter"></i> </a></li>
+                </ul>
+            </div>
+            <div class="col text-center">
+                <h4 class="footer-head">SUBSCRIBE TO OUR NEWSLETTER</h4>
+            </div>
+        </div>
+    </div>
 </div>
 
-</div><!-- /.boxed -->
-
-<!-- Javascript -->
-<script src="catalog/view/theme/default/javascript/jquery.min.js"></script>
-<script src="catalog/view/theme/default/javascript/tether.min.js"></script>
-<script src="catalog/view/theme/default/javascript/bootstrap.min.js"></script>
-<script src="catalog/view/theme/default/javascript/waypoints.min.js"></script>
-<!-- <script src="catalog/view/theme/default/javascript/jquery.circlechart.js"></script> -->
-<script src="catalog/view/theme/default/javascript/easing.js"></script>
-<script src="catalog/view/theme/default/javascript/jquery.zoom.min.js"></script>
-<script src="catalog/view/theme/default/javascript/jquery.flexslider-min.js"></script>
-<script src="catalog/view/theme/default/javascript/owl.carousel.js"></script>
-<script src="catalog/view/theme/default/javascript/smoothscroll.js"></script>
-<!-- <script src="catalog/view/theme/default/javascript/jquery-ui.js"></script> -->
-<script src="catalog/view/theme/default/javascript/jquery.mCustomScrollbar.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVmB8R9KFb4DnFHRtR0hIQBAZdCxjdAO4&region=AZ"></script>
-<script src="catalog/view/theme/default/javascript/gmap3.min.js"></script>
-<script src="catalog/view/theme/default/javascript/waves.min.js"></script>
-<script src="catalog/view/theme/default/javascript/jquery.countdown.js"></script>
-
-<script src="catalog/view/theme/default/javascript/main.js"></script>
-
-<script src="catalog/view/javascript/common.js"></script>
-
-{% for script in scripts %}
-    <script src="{{ script }}"></script>
-{% endfor %}
-
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter51000914 = new Ya.Metrika2({
-                    id:51000914,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true,
-                    webvisor:true
-                });
-            } catch(e) { }
-        });
-
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/tag.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks2");
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/51000914" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-54777620-14"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-54777620-14');
-</script>
-
-{% if lang == "en" %}
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/5bdffb854cfbc9247c1eb78f/1crhgo521';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-        })();
-    </script>
-    <!--End of Tawk.to Script-->
-{% elseif lang == "ru" %}
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/5bdffb854cfbc9247c1eb78f/1crhgrfra';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-        })();
-    </script>
-    <!--End of Tawk.to Script-->
-{% else %}
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/5bdffb854cfbc9247c1eb78f/default';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-        })();
-    </script>
-    <!--End of Tawk.to Script-->
-{% endif %}
-
-</body>
-</html>
+<div class="container-fluid footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <p>Copyright © 2019 CASPI LOUNGE . Website by CASPI AGENCY</p>
+            </div>
+        </div>
+    </div>
+</div>

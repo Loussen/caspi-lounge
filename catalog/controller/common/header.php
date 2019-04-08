@@ -30,21 +30,14 @@ class ControllerCommonHeader extends Controller {
         // start body_class code
         $current_path = $this->request->get;
         if (empty($current_path) || $current_path['route'] == 'common/home') {
-            $body_class = 'home';
+            $body_class = 'home-page';
+            $home_page = true;
         } else {
-            $body_class = explode('/', str_replace('product/', '', $current_path['route']));
-            unset($current_path['route']);
-            if (isset($current_path['_route_'])) {
-                $body_class = array_merge($body_class, explode('/', str_replace('-', '_', $current_path['_route_'])));
-                unset($current_path['_route_']);
-            }
-            foreach ($current_path as $key => $value) {
-                $body_class[] = $key . "_" . $value;
-            }
-            $body_class = 'page_' . implode(" page_", array_unique($body_class));
+            $body_class = '';
+            $home_page = false;
         }
-        $body_class .= ' lang_' . $this->language->get('code');
         $data['body_class'] = $body_class;
+        $data['home_page'] = $home_page;
         // end body_class code
 
 
