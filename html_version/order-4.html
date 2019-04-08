@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--#include file="components/head.html"-->
+<head>
+    <link rel="stylesheet" type="text/css" href="assets/css/custom.css"/>
+</head>
+<body>
+<!--#include file="components/nav.html"-->
+
+
+<div class="container">
+    <div class="row" id="menu-box">
+
+        <div class="col back-fff">
+            <ul class="stepByStep">
+                <li class="success">
+                    <span>1</span>
+                    Pickup
+                </li>
+                <li class="success">
+                    <span>2</span>
+                    Contact
+                </li>
+                <li class="success">
+                    <span>3</span>
+                    Payment
+                </li>
+                <li class="active">
+                    <span>4</span>
+                    Confirmation
+                </li>
+            </ul>
+
+            <div class="order-information-box">
+                <div class="row justify-content-around">
+                    <div class="col-5">
+                        <div class="menu-list -order-page">
+                            <div class="order-top">
+                                <span class="my-order-count">(5 item)</span>
+                                <p class="my-order">My Order</p>
+                            </div>
+                            <div class="order-list">
+                                <div class="me mini">
+                                    <div class="top-info">
+                                        <p>Lentil Soup</p>
+                                        <span>$6.50</span>
+                                    </div>
+                                    <div class="bot-desc">
+                                        Home made lentil, onion, carrot, and potato blends with
+                                        red crash pepper
+                                    </div>
+                                </div>
+                                <div class="me mini">
+                                    <div class="top-info">
+                                        <p>2 X Lentil Soup Lentil Soup</p>
+                                        <span>$6.50</span>
+                                    </div>
+                                </div>
+                                <div class="me mini">
+                                    <div class="top-info">
+                                        <p>Lentil Soup</p>
+                                        <span>$6.50</span>
+                                    </div>
+                                </div>
+                                <div class="me mini">
+                                    <div class="top-info">
+                                        <p>Lentil Soup</p>
+                                        <span>$6.50</span>
+                                    </div>
+                                    <div class="bot-desc">
+                                        Home made lentil, onion, carrot, and potato blends with
+                                        red crash pepper
+                                    </div>
+                                </div>
+                                <div class="me mini">
+                                    <div class="top-info">
+                                        <p>Lentil Soup</p>
+                                        <span>$6.50</span>
+                                    </div>
+                                </div>
+                                <div class="me mini">
+                                    <div class="top-info">
+                                        <p>Lentil Soup</p>
+                                        <span>$6.50</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-bottom">
+                                <span class="price-total">$46.50</span>
+                                <p class="subtotal">Subtotal</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-5">
+                        <div class="payment-user-info">
+                            <div class="media">
+                                <img src="assets/img/empty-profile.png">
+                                <div class="media-body align-self-center">
+                                    <p class="user-name">Jony Anderson</p>
+                                </div>
+                            </div>
+
+                            <p class="info-toolbox mt-4"><i class="fa fa-phone"></i> +000 00 000 00 00</p>
+                            <p class="info-toolbox"><i class="fa fa-map-marker"></i> Pickup Address </p>
+                            <p class="info-toolbox"><i class="fa fa-envelope"></i> jonyanderson@gmail.com</p>
+
+                            <div class="pay-info">
+                                <p class="">Paying with:</p>
+                                <p class="">Credit card <span>$45.50</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="order-bottom-action">
+                <div class="row justify-content-around">
+                    <div class="col-4">
+                        <button type="submit" class="cb cb-small-font cb-white cb-border w-100">
+                            <i class="fa fa-chevron-left"></i> BACK TO PAYMENT
+                        </button>
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="cb cb-small-font cb-blue w-100" onclick="SuccessBox('show')">
+                            CONFIRM ORDER <i class="fa fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="successBox">
+                <div class="text-center">
+                    <img src="assets/img/shoop.png">
+                </div>
+
+                <div class="infos text-center">
+                    <h4>Thank you Jony,</h4>
+                    <p>We’ll see you soon</p>
+                </div>
+
+                <div class="order-number">
+                    <span>0000000001</span>
+                    <p>Order Number</p>
+                </div>
+
+
+                <button class="cb cb-white cb-border w-50" onclick="SuccessBox('hide');">
+                    GOT IT
+                </button>
+
+                <div class="call-info">
+                    <p>Order confirmation was sent to jonyanderson@gmail.com</p>
+                    <p>You order was submitted at 12:45 AM. Questions? Call us at 571-317-5573</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="background-fullImage"></div>
+<!--#include file="components/footer-inner.html"-->
+<!--#include file="components/modals.html"-->
+<!--#include file="components/scripts.html"-->
+</body>
+</html>
