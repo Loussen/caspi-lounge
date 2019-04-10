@@ -84,6 +84,7 @@
         </li>
       </ul>
     </div>
+{% endif %}
 
     <div class="tri" onclick="tri()"></div>
   {# Slider end #}
@@ -93,22 +94,21 @@
       <div class="container">
         <div class="row">
           <div class="col-3">
-            <a href="./">
+            <a href="{{ home }}">
               <img src="{{ logo }}">
             </a>
           </div>
           <div class="col-9 align-self-center">
             <ul class="nav-menu">
-              <li class="active"><a href="javascript:void(0);">HOME</a></li>
+              <li class="active"><a href="{{ home }}">{{text_home}}</a></li>
               <li><a href="javascript:void(0);">RESERVATION </a></li>
-              <li><a href="javascript:void(0);">MENU</a></li>
+              <li><a href="/starters">MENU</a></li>
               <li><a href="javascript:void(0);">CATERING</a></li>
               <li><a href="javascript:void(0);">PRIVATE EVENTS</a></li>
-              <li class="nav-round"><a href="javascript:void(0);">ORDER</a></li>
+              <li class="nav-round"><a href="{{ checkout }}">{{ text_checkout }}</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
   {# Navigation end #}
-{% endif %}
