@@ -487,6 +487,9 @@ body:not(.home-page) .footer-bottom {
     position: relative;
     line-height: 30px;
 }
+.sidebar-menu-list > li > ul > li a {
+    color: #fff;
+}
 
 .sidebar-menu-list > li > ul > li.active:before {
     content: '';
@@ -547,6 +550,11 @@ body:not(.home-page) .footer-bottom {
 .me:hover {
     background-color: rgba(228, 231, 239, 0.45);
     border-radius: 3px;
+}
+
+.me-empty {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .c-menu-list .me:nth-last-child(1) {
@@ -747,5 +755,448 @@ body:not(.home-page) .footer-bottom {
     border: 2px solid #141c40;
     opacity: 0.5;
     resize: none;
-    padding:5px;
+    padding: 5px;
+}
+
+.cb {
+    border-radius: 7px;
+    border: 1px solid transparent;
+    display: inline-block;
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 14.4px;
+    text-transform: uppercase;
+    padding: 13px 25px;
+}
+
+.cb i.fa {
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.cb-blue {
+    background-color: #141c40;
+}
+
+.cb-white {
+    background-color: #fff;
+    color: #141c40;
+}
+
+.cb-border {
+    border: 1px solid #141c40
+}
+
+.cb-small-font {
+    font-size: 16px;
+}
+
+.empty-bag-text {
+    color: rgba(10, 23, 59, .5);
+    font-family: Gilroy;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 14.4px;
+    margin: 10px 0 0;
+}
+
+#addToOrderModal {
+    position: absolute;
+    background-color: #394461;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 30px 20px;
+    top: 100px;
+    width: 80%;
+    left: 10%;
+    z-index: 1;
+    display: none;
+}
+
+.order-name {
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: -0.6px;
+    margin-bottom: 3px;
+}
+
+.order-price {
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: -0.48px;
+    margin-bottom: 3px;
+}
+
+.order-desc {
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.36px;
+}
+
+.special-request.in-modal {
+    text-align: left;
+    border-bottom: 0;
+    margin-bottom: 15px;
+}
+
+.special-request.in-modal .ques {
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.48px;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.special-request.in-modal a {
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.36px;
+}
+
+.special-request.in-modal .special-requests-text {
+    width: 100%;
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+    opacity: 1;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.special-request.in-modal span {
+    display: none;
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.4px;
+}
+
+.order-quantity {
+    margin-bottom: 20px;
+}
+
+.order-quantity .tx {
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.43px;
+}
+
+.order-quantity-count {
+    float: right;
+    display: inline-block;
+}
+
+.order-quantity-count a {
+    display: inline-block;
+    margin: 0 5px;
+    border: 2px solid #ffffff;
+    color: #fff;
+    background: #394461;
+    text-align: center;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-family: Gilroy;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.order-quantity-count span {
+    color: #f8f8f8;
+    font-family: Gilroy;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.43px;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.menu-list .order-top * {
+    color: #fff;
+}
+
+.menu-list .me * {
+    color: #fff !important;
+}
+
+.menu-list .order-bottom {
+    border-bottom: 0 !important;
+    padding-bottom: 0;
+    padding-left: 15px;
+    margin-top: 10px;
+}
+
+.menu-list .order-bottom * {
+    color: #fff !important;
+    font-size: 14px;
+    margin: 0;
+}
+
+.menu-list .cant-online {
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: -0.24px;
+    margin: 0;
+    text-align: left;
+}
+
+.menu-list .order-list {
+    padding: 0;
+}
+
+.menu-list .slimScrollBar {
+    background: #fff !important;
+}
+
+.stepByStep {
+    display: block;
+    list-style: none;
+    margin: -20px -15px;
+    width: calc(100% + 30px);
+    border-bottom: 1px solid #0a173b;
+    padding: 10px 15px;
+}
+
+.stepByStep li {
+    display: inline-block;
+    margin-right: 15px;
+    color: #0a173b;
+    font-family: Gilroy;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 16px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.stepByStep li > span {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 28px;
+    color: #0a173b;
+    font-family: Gilroy;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 50%;
+    border: 2px solid #0a173b;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.stepByStep li.active {
+    opacity: 1;
+}
+
+.stepByStep li.active > span {
+    background: #0a173b;
+    border-color: #0a173b;
+    color: #fff;
+}
+
+.stepByStep li.success > span {
+    text-indent: -9999px;
+    background: url("../img/success.png") no-repeat center center;
+}
+
+.order-information-box {
+    padding: 70px 50px;
+}
+
+.mnt-title {
+    color: #0a173b;
+    font-family: Gilroy;
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 14.4px;
+    margin-bottom: 25px;
+}
+
+.custom-group {
+    display: block;
+    position: relative;
+    padding-top: 15px;
+    margin-bottom: 25px;
+}
+
+.custom-group > label {
+    color: #0a173b;
+    font-family: Gilroy;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: -0.31px;
+    display: block;
+    margin: 0;
+    position: absolute;
+    top: 5px;
+    background: #fff;
+    padding-right: 5px;
+    left: 0;
+}
+
+.custom-group > input {
+    border: 1px solid #0a173b;
+    background-color: #ffffff;
+    height: 41px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Gilroy;
+    font-size: 18px;
+    font-weight: 500;
+    max-width: 100%;
+    width: 100%;
+}
+
+.order-bottom-action {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    left: 0;
+}
+
+.order-payment-type {
+    text-decoration: none;
+}
+
+.order-payment-type p {
+    color: #0a173b;
+    font-family: Gilroy;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 17px;
+    margin-top: 5px;
+}
+
+.-order-page, .payment-user-info {
+    padding: 25px;
+    border-radius: 12px;
+    background: #0a173b;
+}
+
+.user-name {
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 29px;
+    font-weight: 500;
+    line-height: 28px;
+    margin: 0 0 0 15px;
+}
+
+.info-toolbox {
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.pay-info {
+    border-top: 1px solid #fff;
+    padding-top: 15px;
+}
+
+.pay-info p {
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 17px;
+    margin: 0;
+}
+
+.pay-info p > span {
+    float: right;
+}
+
+#successBox {
+    position: absolute;
+    top: 30px;
+    width: 60%;
+    border-radius: 10px;
+    border: 1px solid #707070;
+    background-color: rgba(10, 23, 59, 0.95);
+    padding: 30px 30px 20px;
+    z-index: 2000;
+    left: 20%;
+    text-align: center;
+    display: none;
+}
+
+#successBox h4 {
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 49px;
+    font-weight: 700;
+    letter-spacing: -1.18px;
+    margin: 0;
+}
+
+#successBox .infos > p {
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 25px;
+    font-weight: 300;
+    letter-spacing: -0.6px;
+    margin: 0;
+}
+
+.order-number {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #141c40;
+    background-color: #ffffff;
+    margin: 20px 0;
+}
+
+.order-number > span {
+    color: #141c40;
+    font-family: Gilroy;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: -0.6px;
+}
+
+.order-number > p {
+    opacity: 0.7;
+    color: #141c40;
+    font-family: Gilroy;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.48px;
+    margin: 0;
+}
+
+.call-info {
+    margin-top: 20px;
+}
+
+.call-info p {
+    margin: 0;
+    color: #ffffff;
+    font-family: Gilroy;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.36px;
 }

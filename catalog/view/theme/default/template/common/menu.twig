@@ -1,38 +1,24 @@
 {% if categories %}
-<div id="mega-menu">
-  <div class="btn-mega"><span></span>{{ text_category }}</div>
-  <ul class="menu">
-    {% for category in categories %}
-    <li>
-      <a href="{{ category.href }}" title=""{% if category.children %} class="dropdown"{% endif %}>
-        <span class="menu-img">
-          <img src="catalog/view/theme/default/images/icons/menu/01.png" alt="">
-        </span>
-        <span class="menu-title">
-          {{ category.name }}
-        </span>
-      </a>
-      {% if category.children %}
-      <div class="drop-menu">
-        <div class="one-third">
-          <div class="cat-title">
-            {{ category.name }}
-          </div>
+<div>
+  <ul class="sidebar-menu-list">
+    <li>{{ text_category }}
+      <ul>
+        {% for category in categories %}
+        <li id="{{ category_id }}_{{ category.id }}" {% if category_id == category.id %} class="active"{% endif %}>
+          <a href="{{ category.href }}">{{ category.name }}</a>
+          {% if category.children %}
           <ul class="child row">
             {% for child in category.children %}
-            <li class="col-sm-4">
-              <a href="{{ child.href }}" title="">{{ child.name }}</a>
-            </li>
+              <li class="col-sm-4">
+                <a href="{{ child.href }}">{{ child.name }}</a>
+              </li>
             {% endfor %}
           </ul>
-          <div class="show">
-            <a href="{{ category.href }}" title="">{{ text_all }}</a>
-          </div>
-        </div>
-      </div>
-      {% endif %}
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
     </li>
-    {% endfor %}
   </ul>
 </div>
-{% endif %} 
+{% endif %}
