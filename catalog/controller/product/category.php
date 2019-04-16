@@ -431,6 +431,7 @@ class ControllerProductCategory extends Controller {
             $data['footer'] = $this->load->controller('common/footer');
             $data['header'] = $this->load->controller('common/header');
             $data['menu'] = $this->load->controller('common/menu');
+            $data['cart'] = $this->load->controller('common/cart');
 
             $this->response->setOutput($this->load->view('product/category', $data));
         } else {
